@@ -1,0 +1,25 @@
+.col-md-6.offset-md-3 {
+    max-inline-size: 300px;
+    margin: 0 auto;
+  }
+  
+  form {
+    margin-block-start: 20px;
+  }
+  
+  nz-form-item {
+    margin-block-end: 10px;
+  }
+  
+  nz-form-label {
+    inline-size: 120px;
+    text-align: start;
+  }
+  
+  nz-form-control {
+    flex: 1;
+  }
+  
+  button {
+    margin-inline-start: 120px;
+  }

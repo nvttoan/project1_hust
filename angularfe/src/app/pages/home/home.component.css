@@ -1,0 +1,47 @@
+[nz-carousel-content] {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  color: #fff;
+  overflow: hidden;
+}
+
+
+nz-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+nz-carousel .slick-slide {
+  position: relative;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+nz-carousel .slick-slide.slick-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+nz-carousel .slick-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Điều chỉnh chiều cao tùy ý */
+}
+
+.carousel-wrapper {
+  max-width: 1024px; /* Điều chỉnh chiều rộng tùy ý */
+}
+h1 {
+  text-align: center;
+}

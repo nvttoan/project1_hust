@@ -1,0 +1,69 @@
+<nz-collapse>
+  <nz-collapse-panel *ngFor="let role of roles" [nzHeader]="role">
+    <button nz-button nzType="primary" (click)="showModal(role)">
+      Chỉnh sửa
+    </button>
+    <nz-divider></nz-divider>
+    <ul>
+      <nz-table
+        nzTableLayout="fixed"
+        nzSize="middle"
+        class="custom-table"
+        [nzData]="['']"
+        [nzShowPagination]="false"
+      >
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>menu</th>
+            <th>code</th>
+            <th>url</th>
+            <th>urlparent</th>
+            <th>description</th>
+            <th>icon</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let menu of menuByRole[role]">
+            <td>{{ menu.id }}</td>
+            <td>{{ menu.nameMenu }}</td>
+            <td>{{ menu.code }}</td>
+            <td>{{ menu.url }}</td>
+            <td>{{ menu.urlParent }}</td>
+            <td>{{ menu.description }}</td>
+            <td>{{ menu.icon }}</td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </ul>
+  </nz-collapse-panel>
+</nz-collapse>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzTitle]="'Edit menu by ' + currentRole"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+    <<nz-select
+      [nzMaxTagCount]="7"
+      [nzMaxTagPlaceholder]="tagPlaceHolder"
+      nzMode="multiple"
+      nzPlaceHolder="Please select"
+      [(ngModel)]="listOfSelectedValue"
+      (ngModelChange)="selectedMenuIds = $event"
+      [nzData]="menus"
+    >
+      <nz-option
+        *ngFor="let item of menus"
+        [nzLabel]="item.nameMenu"
+        [nzValue]="item.id"
+      ></nz-option>
+    </nz-select>
+
+    <ng-template #tagPlaceHolder let-selectedList>
+      and {{ selectedList.length }} more selected
+    </ng-template>
+  </ng-container>
+</nz-modal>

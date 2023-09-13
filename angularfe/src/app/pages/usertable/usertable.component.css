@@ -1,0 +1,17 @@
+.search-box {
+    padding: 8px;
+  }
+
+  .search-box input {
+    inline-size: 188px;
+    margin-block-end: 8px;
+    display: block;
+  }
+
+  .search-box button {
+    inline-size: 90px;
+  }
+
+  .search-button {
+    margin-inline-end: 8px;
+  }
